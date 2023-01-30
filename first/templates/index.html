@@ -1,0 +1,29 @@
+<h1>index page is running</h1>
+{%if user.is_authenticated %}
+{%if user.is_superuser%}
+<a href="addcourse">Add Course</a>
+<a href="showcourse">Show Course</a>
+{%endif%}
+<p>{{user.first_name}}</p>
+<a href="logout">Logout</a>
+{%else%}
+<a href="signup">Sign Up</a>
+<a href="login">Login</a>
+{%endif%}
+{%for i in lang%}
+<h4>Language Name : {{i.name}}</h4>
+<h4>Language Duration : {{i.duration}}</h4>
+<h4>Language Fees : {{i.fees}}</h4>
+<h4>Language Trainer : {{i.trainer}}</h4>
+<img src={{i.image.url}} height="100px" width="100px" />
+<hr/>
+{%endfor%}
+{%if messages%}
+{%for message in messages%}
+<script>
+{%if message.tags%}
+    window.alert('{{message}}');
+{%endif%}
+</script>
+{%endfor%}
+{%endif%}

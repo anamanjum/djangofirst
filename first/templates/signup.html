@@ -1,0 +1,19 @@
+<form action="" method="post" >
+    {% csrf_token %}
+    USERNAME<input type="text" name="username" required /><br>
+    FIRST_NAME<input type="text" name="fname" required /><br>
+    LAST_NAME<input type="text" name="lname" required /><br>
+    EMAIL<input type="email" name="email" required /><br>
+    PASSWORD<input type="password" name="password" required /><br>
+    RE-PASSWORD<input type="password" name="rpassword" required /><br>
+    <input type="submit" value="SIGN UP" />
+</form>
+{%if messages%}
+{%for message in messages%}
+<script>
+{%if message.tags%}
+    window.alert('{{message}}');
+{%endif%}
+</script>
+{%endfor%}
+{%endif%}

@@ -1,0 +1,22 @@
+{%for i in lang%}
+<form action="update" method="post">
+    {% csrf_token %}
+<h4>Language Id : <input type="hidden" name="id" value="{{i.id}}" /></h4>
+<h4>Language Name : <input type="text" name="name" value="{{i.name}}" /></h4>
+<h4>Language Duration :<input type="text" name="duration" value=" {{i.duration}}" /></h4>
+<h4>Language Fees : <input type="number" name="fees" value="{{i.fees}}" /></h4>
+<h4>Language Trainer : <input type="text" name="trainer" value=" {{i.trainer}}" /></h4>
+<input type="submit" value="Update" />
+</form>
+<a href="delete?id={{i.id}}">Delete</a>
+<hr/>
+{%endfor%}
+{%if messages%}
+{%for message in messages%}
+<script>
+{%if message.tags%}
+    window.alert('{{message}}');
+{%endif%}
+</script>
+{%endfor%}
+{%endif%}

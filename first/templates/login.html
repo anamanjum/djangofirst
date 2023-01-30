@@ -1,0 +1,15 @@
+<form action="" method="post">
+    {% csrf_token %}
+USER NAME<input type="text" name="username" /><br>
+PASSWORD<input type="password" name="password" /><br>
+<input type="submit" value="Login" />
+</form>
+{%if messages%}
+{%for message in messages%}
+<script>
+{%if message.tags%}
+    window.alert('{{message}}');
+{%endif%}
+</script>
+{%endfor%}
+{%endif%}
